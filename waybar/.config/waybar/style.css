@@ -2,57 +2,38 @@
 
 * {
   font-family: FantasqueSansMono Nerd Font;
-  font-size: 17px;
+  font-size: 14px;
   min-height: 0;
 }
 
 #waybar {
   background: transparent;
   color: @text;
-  margin: 5px 5px;
-}
-
-#workspaces {
-  border-radius: 1rem;
-  margin: 5px;
-  background-color: @surface0;
-  margin-left: 1rem;
 }
 
 #workspaces button {
-  color: @lavender;
-  border-radius: 1rem;
-  padding: 0.4rem;
+  color: @flamingo;
 }
 
 #workspaces button.active {
-  color: @sky;
-  background-color: @active-bg;
-  border-radius: 1rem;
+  border-bottom: 4px solid @border;
 }
 
 #workspaces button:hover {
-  color: @sapphire;
-  background-color: @hover-bg;
-  border-radius: 1rem;
+  color: @mauve;
+  border-bottom: 4px solid @mauve;
 }
 
-#custom-music,
-#tray,
-#backlight,
-#clock,
-#battery,
-#pulseaudio,
-#custom-lock,
-#custom-power {
-  background-color: @surface0;
-  padding: 0.5rem 1rem;
-  margin: 5px 0;
+#window {
+  padding-left: 16px;
+  border-left: 4px solid @flamingo;
+  color: @flamingo;
 }
 
-#clock {
-  color: @blue;
-  border-radius: 1rem;
+#windows, #clock, #sound, #tray, #system, #power {
+  border-radius: 26px;
+  background-color: @workspaces;
+  padding: 0 24px 0 24px;
 }
 
 #battery {
@@ -67,14 +48,6 @@
   color: @red;
 }
 
-#backlight {
-  color: @yellow;
-}
-
-#backlight, #battery {
-    border-radius: 0;
-}
-
 #pulseaudio {
   color: @maroon;
   margin-left: 1rem;
@@ -84,16 +57,10 @@
   color: @mauve;
 }
 
-#custom-lock {
-    color: @lavender;
+#custom-lock{
+  color: @teal;
 }
 
 #custom-power {
-    margin-right: 1rem;
-    color: @red;
-}
-
-#tray {
-  margin-right: 1rem;
-  border-radius: 1rem;
+  color: @peach;
 }

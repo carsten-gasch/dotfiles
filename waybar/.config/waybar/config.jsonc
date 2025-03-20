@@ -1,19 +1,10 @@
 {
-  "layer": "top", // Waybar at top layer
-  "position": "top", // Waybar position (top|bottom|left|right)
-  // "width": 1280, // Waybar width
-  // Choose the order of the modules
+  "layer": "bottom",
+  "position": "top",
+  "mode": "dock",
   "modules-left": ["group/windows"],
   "modules-center": ["clock"],
-  "modules-right": ["group/sound", "backlight", "battery", "tray", "custom/lock", "custom/power"],
-
-  "group/sound":{
-    "orientation": "horizontal",
-    "modules": [
-      "custom/music",
-      "pulseaudio",
-    ],
-  },
+  "modules-right": ["group/sound", /*"group/system", */"tray", "group/power"],
 
   "group/windows":{
     "orientation": "horizontal",
@@ -23,19 +14,59 @@
     ]
   },
 
+  "clock": {
+    "timezone": "Europe/Berlin",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "format-alt": " {:%d/%m/%Y}",
+    "format": "{:%H:%M}"
+  },
+
+  "group/sound":{
+    "orientation": "horizontal",
+    "modules": [
+      "custom/music",
+      "pulseaudio",
+    ],
+  },
+
+  "group/system":{
+    "orientation":"horizontal",
+    "modules":[
+      "backlight",
+      "battery",
+    ],
+    "hide-empty-text": true,
+  },
+
+  "group/power":{
+    "orientation": "horizontal",
+    "modules":[
+      "custom/lock",
+      "custom/power",
+    ],
+  },
+
   "hyprland/workspaces": {
+    "icon-size":18,
     "persistent-workspaces": {
       "*":5,
     },
-    "disable-scroll": true,
+    "disable-scroll": false,
     "sort-by-name": true,
-    "format": " {id} ",
+    "format": " {icon} ",
     "format-icons": {
-      "default": "",
+      "default": "",
+      "active": "",
     },
   },
 
+  "hyprland/window":{
+    "icon-size":18,
+    "format": "{title}"
+  },
+
   "custom/music": {
+    "icon-size":18,
     "format": "  {}",
     "escape": true,
     "interval": 5,
@@ -45,20 +76,15 @@
     "max-length": 50
   },
 
-  "clock": {
-    "timezone": "Europe/Berlin",
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-    "format-alt": " {:%d/%m/%Y}",
-    "format": "{:%H:%M}"
-  },
-
   "backlight": {
     "device": "intel_backlight",
+    "icon-size":18,
     "format": "{icon}",
     "format-icons": ["", "", "", "", "", "", "", "", ""]
   },
 
   "battery": {
+    "icon-size":18,
     "states": {
       "warning": 30,
       "critical": 15
@@ -70,11 +96,8 @@
     "format-icons": ["", "",  "", "", "", "", "", "", "", "", "", ""]
   },
 
-  "hyprland/window":{
-    "format": "{title}"
-  },
-
   "pulseaudio": {
+    "icon-size":18,
     "scroll-step": 10, // %, can be a float
     "format": "{icon} {volume}%",
     "format-muted": "",
@@ -83,16 +106,23 @@
     },
     "on-click": "pavucontrol"
   },
+  
+  "tray":{
+    "icon-size":18,
+    "spacing": 12,
+  },
 
   "custom/lock": {
+    "icon-size":18,
     "tooltip": false,
     "on-click": "hyprlock &",
-    "format": "",//nf-fa-lock
+    "format": "  ",//nf-fa-lock
   },
 
   "custom/power": {
+    "icon-size":18,
     "tooltip": false,
     "on-click": "wlogout &",
-    "format": "" //nf-fa-power_off
+    "format": "  " //nf-fa-power_off
   }
 }

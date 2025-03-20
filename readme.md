@@ -2,19 +2,24 @@
 
 ## what is included
 
-- nvim config (subject to change)
-- hyprland config (subject to change)
-- rofi config (probably won't change, as it's kind of anoying)
-- waybar config (subject to change)
-- dunst config (notifications in hyprland)
-- kitty
+| program | description | status |
+|---------|-------------|--------|
+| dunst | notifications in hyprland | subject to change |
+| rofi | drun replacement for hyprland | done |
+| waybar | statusbar for hyprland | subject to change |
+| hypr | hyprland configs | constantly evolving -> will never be finished |
+| kitty | terminal emulator of choice | probably done |
+| nvim | nvim config and plugins | will probably never be finished |
 
 ## how to install
 
 Make sure to have stow installed `sudo pacman -S stow`.
-`stow dunst`
-`stow rofi`
-`stow kitty`
-`stow hypr`
-`stow waybar`
-`stow nvim`
+
+```
+stow dunst
+stow rofi
+stow kitty
+stow hypr
+stow waybar
+stow nvim
+```

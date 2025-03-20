@@ -4,6 +4,7 @@
 
 | program | description | status |
 |---------|-------------|--------|
+| bash | bashrc and oh-my-bash | |
 | dunst | notifications in hyprland | subject to change |
 | hypr | hyprland configs | constantly evolving -> will never be finished |
 | kitty | terminal emulator of choice | probably done |
@@ -16,6 +17,7 @@
 Make sure to have stow installed `sudo pacman -S stow`.
 
 ```
+stow bash
 stow dunst
 stow hypr
 stow kitty

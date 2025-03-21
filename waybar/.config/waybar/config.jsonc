@@ -41,6 +41,7 @@
   "group/power":{
     "orientation": "horizontal",
     "modules":[
+      "idle_inhabtor",
       "custom/lock",
       "custom/power",
     ],
@@ -110,6 +111,14 @@
   "tray":{
     "icon-size":18,
     "spacing": 12,
+  },
+
+  "idle_inhabitor":{
+    "format":"{icon}",
+    "format-icons":{
+      "activated": "",
+      "deactivated":"",
+    },
   },
 
   "custom/lock": {

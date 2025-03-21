@@ -36,6 +36,10 @@
   padding: 0 24px 0 24px;
 }
 
+#idle_inhabitor {
+  color: @maron;
+}
+
 #battery {
   color: @green;
 }

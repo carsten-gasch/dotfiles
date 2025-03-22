@@ -11,6 +11,7 @@
 | nvim | nvim config and plugins | will probably never be finished |
 | rofi | drun replacement for hyprland | done |
 | waybar | statusbar for hyprland | subject to change |
+| wlogout | logout and reboot screen | themed to catppuccin mocha - probably done|
 
 ## how to install
 
@@ -24,4 +25,5 @@ stow kitty
 stow nvim
 stow rofi
 stow waybar
+stow wlogout
 ```

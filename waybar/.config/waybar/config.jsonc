@@ -41,7 +41,7 @@
   "group/power":{
     "orientation": "horizontal",
     "modules":[
-      "idle_inhabtor",
+      "idle_inhibitor",
       "custom/lock",
       "custom/power",
     ],
@@ -50,7 +50,7 @@
   "hyprland/workspaces": {
     "icon-size":18,
     "persistent-workspaces": {
-      "*":5,
+      "*":3,
     },
     "disable-scroll": false,
     "sort-by-name": true,
@@ -113,7 +113,7 @@
     "spacing": 12,
   },
 
-  "idle_inhabitor":{
+  "idle_inhibitor":{
     "format":"{icon}",
     "format-icons":{
       "activated": "",

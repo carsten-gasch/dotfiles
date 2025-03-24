@@ -19,3 +19,8 @@ vim.keymap.set("n", "<leader>cf", function()
 		lsp_format = "fallback",
 	})
 end, { desc = "[F]ormat [F]ile" })
+
+-- set ls for hyprland stuff
+vim.filetype.add({
+	pattern = { [".*/hypr/.*%.conf"] = "hyprlang" },
+})

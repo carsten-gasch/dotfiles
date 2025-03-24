@@ -4,7 +4,7 @@
   "mode": "dock",
   "modules-left": ["group/windows"],
   "modules-center": ["clock"],
-  "modules-right": ["group/sound", /*"group/system", */"tray", "group/power"],
+  "modules-right": ["group/sound", "group/system", "tray", "group/power"],
 
   "group/windows":{
     "orientation": "horizontal",
@@ -34,6 +34,7 @@
     "modules":[
       "backlight",
       "battery",
+      "power-profiles-daemon",
     ],
     "hide-empty-text": true,
   },
@@ -41,7 +42,7 @@
   "group/power":{
     "orientation": "horizontal",
     "modules":[
-      "idle_inhibitor",
+      "custom/idle_inhibitor",
       "custom/lock",
       "custom/power",
     ],
@@ -97,41 +98,52 @@
     "format-icons": ["", "",  "", "", "", "", "", "", "", "", "", ""]
   },
 
+  "power-profiles-daemon": {
+  "format": "{icon}   {profile}",
+  "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+  "tooltip": true,
+  "format-icons": {
+    "default": "",
+    "performance": "",
+    "balanced": "",
+    "power-saver": ""
+  }
+},
+
   "pulseaudio": {
     "icon-size":18,
     "scroll-step": 10, // %, can be a float
     "format": "{icon} {volume}%",
     "format-muted": "",
     "format-icons": {
-      "default": ["", "", " "]
+      "default": ["  ", "  ", "  "]
     },
     "on-click": "pavucontrol"
   },
-  
+
   "tray":{
     "icon-size":18,
     "spacing": 12,
   },
 
   "idle_inhibitor":{
-    "format":"{icon}",
-    "format-icons":{
-      "activated": "",
-      "deactivated":"",
-    },
+    "format":" {} ",
+    "exec": "$HOME/.config/waybar/scripts/idle_check.sh",
+    "on-click": "$HOME/.config/watbar/scripts/idle_toggle.sh",
+    "signal": 10,
   },
 
   "custom/lock": {
     "icon-size":18,
     "tooltip": false,
-    "on-click": "hyprlock &",
+    "on-click": "hyprlock",
     "format": "  ",//nf-fa-lock
   },
 
   "custom/power": {
     "icon-size":18,
     "tooltip": false,
-    "on-click": "wlogout &",
+    "on-click": "wlogout",
     "format": "  " //nf-fa-power_off
   }
 }

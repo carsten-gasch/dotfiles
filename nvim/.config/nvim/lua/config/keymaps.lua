@@ -18,4 +18,4 @@ vim.keymap.set("n", "<leader>cf", function()
 	require("conform").format({
 		lsp_format = "fallback",
 	})
-end, { desc = "[F]ormat File" })
+end, { desc = "[F]ormat [F]ile" })

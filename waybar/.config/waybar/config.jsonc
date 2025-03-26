@@ -18,7 +18,7 @@
     "timezone": "Europe/Berlin",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
     "format-alt": " {:%d/%m/%Y}",
-    "format": "{:%H:%M}"
+    "format": "{:%H:%M - %A, %Y-%m-%d}"
   },
 
   "group/sound":{
@@ -50,11 +50,8 @@
 
   "hyprland/workspaces": {
     "icon-size":18,
-    "persistent-workspaces": {
-      "*":3,
-    },
-    "disable-scroll": false,
-    "sort-by-name": true,
+    "on-scroll-up": "hyprctl dispatch workspace e+1",
+    "on-scroll-down": "hyprctl dispatch workspace e-1",
     "format": " {icon} ",
     "format-icons": {
       "default": "",
@@ -99,16 +96,16 @@
   },
 
   "power-profiles-daemon": {
-  "format": "{icon}   {profile}",
-  "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
-  "tooltip": true,
-  "format-icons": {
-    "default": "",
-    "performance": "",
-    "balanced": "",
-    "power-saver": ""
-  }
-},
+    "format": "{icon}   {profile}",
+    "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+    "tooltip": true,
+    "format-icons": {
+      "default": "",
+      "performance": "",
+      "balanced": "",
+      "power-saver": ""
+    }
+  },
 
   "pulseaudio": {
     "icon-size":18,
@@ -127,9 +124,9 @@
   },
 
   "idle_inhibitor":{
-    "format":" {} ",
+    "format":" {status} ",
     "exec": "$HOME/.config/waybar/scripts/idle_check.sh",
-    "on-click": "$HOME/.config/watbar/scripts/idle_toggle.sh",
+    "on-click": "$HOME/.config/waybar/scripts/idle_toggle.sh",
     "signal": 10,
   },
 

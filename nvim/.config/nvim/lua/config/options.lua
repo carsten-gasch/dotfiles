@@ -12,11 +12,21 @@ vim.cmd("set clipboard=unnamedplus")
 vim.cmd("set number")
 vim.cmd("set relativenumber")
 
+vim.cmd("set linebreak")
 vim.cmd("set smartindent")
+
+vim.opt.list = true
+vim.opt.listchars:append({
+	tab = "▏→",
+	trail = "·",
+	precedes = "«",
+	extends = "»",
+	eol = "⏎",
+})
 
 -- open floating diagnostics panel
 vim.keymap.set("n", "gl", function()
-  vim.diagnostic.open_float()
+	vim.diagnostic.open_float()
 end, { desc = "Open diagnostics in Float" })
 
 -- map jj and jk to <esc> in insert mode

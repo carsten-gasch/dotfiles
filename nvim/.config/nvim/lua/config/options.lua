@@ -1,54 +1,33 @@
-vim.opt.expandtab = true
-vim.opt.tabstop = 2
-vim.opt.softtabstop = 2
-vim.opt.shiftwidth = 2
-vim.opt.autoindent = true
-vim.opt.breakindent = true
-vim.opt.linebreak = true
-
-vim.opt.mouse = "a"
-
 vim.g.mapleader = " "
-vim.g.maplocalleader = " "
 
-vim.g.background = "light"
-vim.opt.signcolumn = "yes"
+vim.opt.title = true
 
-vim.opt.number = true
-vim.opt.relativenumber = true
+vim.cmd("set expandtab")
+vim.cmd("set tabstop=2")
+vim.cmd("set softtabstop=2")
+vim.cmd("set shiftwidth=2")
 
-vim.opt.cursorline = true
+vim.cmd("set clipboard=unnamedplus")
 
-vim.opt.showmode = false
-vim.opt.cmdheight = 0
+vim.cmd("set number")
+vim.cmd("set relativenumber")
 
-vim.schedule(function()
-	vim.opt.clipboard = "unnamedplus"
-end)
+vim.cmd("set smartindent")
 
-vim.opt.confirm = true
-vim.opt.scrolloff = 10
+-- open floating diagnostics panel
+vim.keymap.set("n", "gl", function()
+  vim.diagnostic.open_float()
+end, { desc = "Open diagnostics in Float" })
 
-vim.opt.list = true
-vim.opt.listchars = { tab = "» ", trail = "·", space = "·", nbsp = "␣", eol = "↲" }
+-- map jj and jk to <esc> in insert mode
+vim.keymap.set("i", "jj", "<ESC>", { silent = true })
+vim.keymap.set("i", "jk", "<ESC>", { silent = true })
 
-vim.opt.splitright = true
-vim.opt.splitbelow = true
+-- Navigate vim panes better
+vim.keymap.set("n", "<c-k>", ":wincmd k<CR>")
+vim.keymap.set("n", "<c-j>", ":wincmd j<CR>")
+vim.keymap.set("n", "<c-h>", ":wincmd h<CR>")
+vim.keymap.set("n", "<c-l>", ":wincmd l<CR>")
 
-vim.opt.updatetime = 250
-vim.opt.timeoutlen = 300
-
-vim.opt.ignorecase = true
-vim.opt.smartcase = true
-
-vim.opt.inccommand = "split"
-
-vim.opt.swapfile = false
-
-vim.api.nvim_create_autocmd("TextYankPost", {
-	desc = "Highlight when yanking (copying) text",
-	group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
-	callback = function()
-		vim.highlight.on_yank()
-	end,
-})
+-- disable hightlights on <esc>
+vim.keymap.set("n", "<Esc>", ":nohlsearch<CR>")

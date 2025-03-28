@@ -24,6 +24,8 @@ vim.opt.listchars:append({
 	eol = "⏎",
 })
 
+vim.opt.showmode = false
+
 -- open floating diagnostics panel
 vim.keymap.set("n", "gl", function()
 	vim.diagnostic.open_float()

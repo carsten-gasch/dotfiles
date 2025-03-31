@@ -40,6 +40,9 @@ return {
 			lspconfig.cssls.setup({
 				capabilities = capabilities,
 			})
+			lspconfig.pylsp.setup({
+				capabilities = capabilities,
+			})
 
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
 			vim.keymap.set("n", "gD", vim.lsp.buf.declaration, {})
@@ -50,6 +53,7 @@ return {
 
 			vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
 			vim.keymap.set({ "n", "v" }, "<leader>cr", vim.lsp.buf.rename, {})
+			vim.keymap.set({ "n", "v" }, "<leader>cf", vim.lsp.buf.format, {})
 		end,
 	},
 }

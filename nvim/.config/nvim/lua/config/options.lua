@@ -43,3 +43,5 @@ vim.keymap.set("n", "<c-l>", ":wincmd l<CR>")
 
 -- disable hightlights on <esc>
 vim.keymap.set("n", "<Esc>", ":nohlsearch<CR>")
+
+vim.opt.winborder = "rounded"

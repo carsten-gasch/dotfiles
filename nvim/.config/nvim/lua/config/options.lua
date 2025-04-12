@@ -16,13 +16,13 @@ vim.cmd("set linebreak")
 vim.cmd("set smartindent")
 
 vim.opt.list = true
-vim.opt.listchars:append({
-	tab = "▏→",
+vim.opt.listchars = {
+	tab = "|-",
 	trail = "·",
 	precedes = "«",
 	extends = "»",
 	eol = "⏎",
-})
+}
 
 vim.opt.showmode = false
 
@@ -44,4 +44,4 @@ vim.keymap.set("n", "<c-l>", ":wincmd l<CR>")
 -- disable hightlights on <esc>
 vim.keymap.set("n", "<Esc>", ":nohlsearch<CR>")
 
-vim.opt.winborder = "rounded"
+vim.opt.conceallevel = 2

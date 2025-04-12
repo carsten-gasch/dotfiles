@@ -43,6 +43,9 @@ return {
 			lspconfig.pylsp.setup({
 				capabilities = capabilities,
 			})
+			lspconfig.jsonls.setup({
+				capabilities = capabilities,
+			})
 
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
 			vim.keymap.set("n", "gD", vim.lsp.buf.declaration, {})

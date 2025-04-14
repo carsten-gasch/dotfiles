@@ -1,0 +1,73 @@
+[language-server.gopls.config]
+gofumpt = true
+
+[[language]]
+name = "go"
+auto-format = true
+
+[[language]]
+name = "html"
+formatter = { command = 'prettier', args = ["--parser", "html"] }
+auto-format = true
+
+[[language]]
+name = "css"
+formatter = { command = 'prettier', args = ["--parser", "css"] }
+auto-format = true
+
+[[language]]
+name = "scss"
+formatter = { command = 'prettier', args = ["--parser", "scss"] }
+auto-format = true
+
+[[language]]
+name = "javascript"
+formatter = { command = 'prettier', args = ["--parser", "typescript"] }
+auto-format = true
+language-servers = [
+  "typescript-language-server",    # optional
+  "vscode-eslint-language-server",
+]
+
+[[language]]
+name = "typescript"
+formatter = { command = 'prettier', args = ["--parser", "typescript"] }
+auto-format = true
+language-servers = [
+  "typescript-language-server",    # optional
+  "vscode-eslint-language-server",
+]
+
+[[language]]
+name = "tsx"
+formatter = { command = 'prettier', args = ["--parser", "typescript"] }
+auto-format = true
+
+[[language]]
+name = "json"
+formatter = { command = 'prettier', args = ["--parser", "json"] }
+auto-format = true
+
+[[language]]
+name = "jsonc"
+formatter = { command = 'prettier', args = ["--parser", "jsonc"] }
+auto-format = true
+
+[[language]]
+name = "markdown"
+formatter = { command = 'prettier', args = ["--parser", "markdown"] }
+auto-format = true
+
+[[language]]
+name = "python"
+language-servers = ["ruff"]
+formatter = { command = "ruff", args = ["format", "--line-length", "88", "-"] }
+auto-format = true
+[language-server.ruff]
+command = "ruff"
+args = ["server"]
+
+[[language]]
+name = "toml"
+formatter = { command = "taplo", args = ["format", "-"] }
+auto-format = true

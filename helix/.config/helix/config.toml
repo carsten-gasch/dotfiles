@@ -14,6 +14,9 @@ select = "underline"
 [editor.soft-wrap]
 enable = true
 
+[keys.normal.space.t]
+s = ":toggle soft-wrap.enable"
+
 [editor.file-picker]
 hidden = false
 
@@ -25,3 +28,6 @@ render = true
 
 [editor.inline-diagnostics]
 cursor-line = "warning"
+
+[keys.insert]
+j = { k = "normal_mode" }

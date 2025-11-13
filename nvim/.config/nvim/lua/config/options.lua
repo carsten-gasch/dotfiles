@@ -1,47 +1,42 @@
-vim.g.mapleader = " "
+-- options
+--------------------------------------------------------------------------------
+-- Relative and absolute line numbers combined
+vim.opt.number = true
+vim.opt.relativenumber = true
 
-vim.opt.title = true
+-- Keep signcolumn on by default
+vim.opt.signcolumn = 'yes'
 
-vim.cmd("set expandtab")
-vim.cmd("set tabstop=2")
-vim.cmd("set softtabstop=2")
-vim.cmd("set shiftwidth=2")
+-- Cursorline
+vim.opt.cursorline = true
 
-vim.cmd("set clipboard=unnamedplus")
-
-vim.cmd("set number")
-vim.cmd("set relativenumber")
-
-vim.cmd("set linebreak")
-vim.cmd("set smartindent")
-
+-- Show whitespace characters
 vim.opt.list = true
-vim.opt.listchars = {
-	tab = "|-",
-	trail = "·",
-	precedes = "«",
-	extends = "»",
-	eol = "⏎",
-}
+vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
-vim.opt.showmode = false
+-- Search
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
 
--- open floating diagnostics panel
-vim.keymap.set("n", "gl", function()
-	vim.diagnostic.open_float()
-end, { desc = "Open diagnostics in Float" })
+-- Preview substitutions
+vim.opt.inccommand = 'split'
 
--- map jj and jk to <esc> in insert mode
-vim.keymap.set("i", "jj", "<ESC>", { silent = true })
-vim.keymap.set("i", "jk", "<ESC>", { silent = true })
+-- Text wrapping
+vim.opt.wrap = true
+vim.opt.breakindent = true
 
--- Navigate vim panes better
-vim.keymap.set("n", "<c-k>", ":wincmd k<CR>")
-vim.keymap.set("n", "<c-j>", ":wincmd j<CR>")
-vim.keymap.set("n", "<c-h>", ":wincmd h<CR>")
-vim.keymap.set("n", "<c-l>", ":wincmd l<CR>")
+-- Tabstops
+vim.opt.expandtab = true
+vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
+vim.opt.shiftwidth = 2
 
--- disable hightlights on <esc>
-vim.keymap.set("n", "<Esc>", ":nohlsearch<CR>")
+-- Window splitting
+vim.opt.splitright = true
+vim.opt.splitbelow = true
 
--- vim.opt.conceallevel = 2
+-- Save undo history
+vim.opt.undofile = true
+
+-- Set the default border for all floating windows
+vim.opt.winborder = 'rounded'

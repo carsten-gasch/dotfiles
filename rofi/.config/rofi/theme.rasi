@@ -1,4 +1,5 @@
-@import "catppuccin-mocha"
+@import "gruvbox-dark"
+/*@import "catppuccin-mocha"*/
 
 * {
   selected-active-foreground:  @background;

@@ -165,4 +165,6 @@ configuration {
   }
 }
 
-@theme "/home/caga/.config/rofi/theme.rasi"
+//@theme "/home/caga/.config/rofi/theme.rasi"
+
+@theme "/usr/share/rofi/themes/gruvbox-dark.rasi"

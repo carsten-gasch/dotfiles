@@ -36,10 +36,14 @@
 */
 
 * {
+  base:           @bg0h;
+  text:           @fg0;
   main-bg:        @bg0h;
   main-fg:        @fg0;
   main-br:        @yellow;
   input-bg:       @bg1;
   select-bg:      @yellow;
   select-fg:      @bg0h;
+  lightfg:        @select-fg;
+  lightbg:        @select-bg;
 }

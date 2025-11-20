@@ -120,7 +120,7 @@
 	"pulseaudio": {
 		"format": "{icon} {volume}%",
 		"format-bluetooth": "{icon} {volume}%",
-		"format-muted": "󰝟",
+		"format-muted": "󰝟 (muted)",
 		"format-icons": {
 			"headphone": "󰋋",
 			"headset": "󰋎",
@@ -129,7 +129,7 @@
 			"car": "󰄋",
 			"default": ["", "󰕾"]
 		},
-		"scroll-step": 1,
+		"scroll-step": 5,
 		"on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
 		"tooltip": false
 	},

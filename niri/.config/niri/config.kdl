@@ -12,7 +12,9 @@ input {
         repeat-delay 200
         repeat-rate 35
         xkb {
-            layout "de"
+            // layout "de"
+            layout "us(altgr-intl), de"
+            options "caps:none,grp:shifts_toggle"
             // You can set rules, model, layout, variant and options.
             // For more information, see xkeyboard-config(7).
 
@@ -114,6 +116,29 @@ output "DP-2" {
     mode "3440x1440@144"
     scale 1
     transform "normal"
+    focus-at-startup
+    position x=0 y=0
+    hot-corners {
+        top-left
+    }
+}
+
+output "HDMI-A-2" {
+    mode "1920x1080@60"
+    scale 1
+    transform "270"
+    position x=3440 y=0
+    hot-corners {
+        top-right
+    }
+    layout {
+        default-column-width {
+            proportion 1.0;
+        }
+        preset-column-widths {
+            proportion 0.5
+        }
+    }
 }
 
 // Settings that influence how windows are positioned and sized.
@@ -277,6 +302,7 @@ layout {
         // top 64
         // bottom 64
     }
+    always-center-single-column
 }
 
 // Add lines like this to spawn processes at startup.
@@ -286,8 +312,10 @@ layout {
 
 // This line starts waybar, a commonly used bar for Wayland compositors.
 // spawn-at-startup "waybar"
-spawn-sh-at-startup "swaybg -i ~/Bilder/wallpaper/lifting_shirt.png"
+spawn-sh-at-startup "swaybg -o DP-2 -i ~/Bilder/wallpaper/lifting_shirt.png"
+spawn-sh-at-startup "swaybg -o HDMI-A-2 -i ~/Bilder/wallpaper/lifting_shirt_2.png"
 spawn-sh-at-startup "solaar --window=hide"
+spawn-sh-at-startup "systemctl --user start stasis"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"

@@ -84,3 +84,36 @@ pycodestyle.enabled = false
 pyflakes.enabled = false
 pylint.enabled = false
 yapf.enabled = false
+
+[language-server.tinymist]
+command = "tinymist"
+
+[language-server.tinymist.config]
+preview.background.enabled = true
+preview.background.args = [
+  "--data-plane-host=127.0.0.1:23635",
+  # "--invert-colors=auto",
+  "--open"
+]
+
+[[language]]
+name = "typst"
+language-servers = ["tinymist"]
+
+[language-server]
+openscad-lsp = { command = "openscad-lsp", args = ["--stdio"] }
+
+[[language]]
+name = "openscad"
+scope = "source.openscad"
+injection-regex = "openscad"
+file-types = ["scad"]
+comment-token = "//"
+block-comment-tokens = { start = "/*", end = "*/" }
+language-servers = [ "openscad-lsp" ]
+indent = { tab-width = 2, unit = "\t" }
+
+[[grammar]]
+name = "openscad"
+source = { git = "https://github.com/openscad/tree-sitter-openscad", rev = "acc196e969a169cadd8b7f8d9f81ff2d30e3e253" }
+

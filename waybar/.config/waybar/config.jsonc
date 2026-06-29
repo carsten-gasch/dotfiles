@@ -1,184 +1,94 @@
 {
-	"layer": "top",
-	"position": "top",
-	"modules-left": [
-		"niri/workspaces",
-		"custom/arrow10",
-		"niri/window"
-	],
-	"modules-right": [
-		"custom/arrow9",
-		"pulseaudio",
-		"custom/arrow8",
-		"network",
-		"custom/arrow7",
-		"memory",
-		"custom/arrow6",
-		"cpu",
-		"custom/arrow5",
-		"temperature",
-		"custom/arrow4",
-		"battery",
-		"custom/arrow3",
-		"niri/language",
-		"custom/arrow2",
-		"tray",
-		"clock#date",
-		"custom/arrow1",
-		"clock#time"
-	],
-	// Modules
-	"battery": {
-		"interval": 10,
-		"states": {
-			"warning": 30,
-			"critical": 15
-		},
-		"format-time": "{H}:{M:02}",
-		"format": "{icon} {capacity}% ({time})",
-		"format-charging": " {capacity}% ({time})",
-		"format-charging-full": " {capacity}%",
-		"format-full": "{icon} {capacity}%",
-		"format-alt": "{icon} {power}W",
-		"format-icons": [
-			"",
-			"",
-			"",
-			"",
-			""
-		],
-		"tooltip": false
-	},
-	"clock#time": {
-		"interval": 10,
-		"format": "{:%H:%M}",
-		"tooltip": false
-	},
-	"clock#date": {
-		"interval": 20,
-		"format": "{:%e. %b. %Y}",
-		"tooltip": false
-		//"tooltip-format": "{:%e %B %Y}"
-	},
-	"cpu": {
-		"interval": 5,
-		"tooltip": false,
-		"format": "󰻠 {usage}%",
-		"format-alt": "󰻠 {load}",
-		"states": {
-			"warning": 70,
-			"critical": 90
-		}
-	},
-	"niri/language": {
-		"format": " {}",
-		"min-length": 5,
-		// "on-click": "swaymsg 'input * xkb_switch_layout next'",
-		"tooltip": false
-	},
-	"memory": {
-		"interval": 5,
-		"format": "󰍛 {used:0.1f}G/{total:0.1f}G",
-		"states": {
-			"warning": 70,
-			"critical": 90
-		},
-		"tooltip": false
-	},
-	"network": {
-		"interval": 5,
-		"format-wifi": "󰖩 {essid} ({signalStrength}%)",
-		"format-ethernet": "󰈀 {ifname}",
-		"format-disconnected": "No connection",
-		"format-alt": "󰈀 {ipaddr}/{cidr}",
-		"tooltip": false
-	},
-	"niri/window": {
-		"format": "{}",
-		"max-length": 130,
-		"tooltip": false
-	},
-	"niri/workspaces": {
-		"disable-scroll-wraparound": true,
-		"smooth-scrolling-threshold": 4,
-		"enable-bar-scroll": true,
-		"format": "{icon}"
-	},
-	"pulseaudio": {
-		"format": "{icon} {volume}%",
-		"format-bluetooth": "{icon} {volume}%",
-		"format-muted": "󰝟 (muted)",
-		"format-icons": {
-			"headphone": "󰋋",
-			"headset": "󰋎",
-			"phone": "󰏲",
-			"portable": "",
-			"car": "󰄋",
-			"default": [
-				"",
-				"󰕾"
-			]
-		},
-		"scroll-step": 5,
-		"on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
-		"tooltip": false
-	},
-	"temperature": {
-		"critical-threshold": 90,
-		"interval": 5,
-		"format": "{icon} {temperatureC}°",
-		"format-icons": [
-			"",
-			"",
-			"",
-			"",
-			""
-		],
-		"tooltip": false
-	},
-	"tray": {
-		"icon-size": 18
-		//"spacing": 10
-	},
-	"custom/arrow1": {
-		"format": "",
-		"tooltip": false
-	},
-	"custom/arrow2": {
-		"format": "",
-		"tooltip": false
-	},
-	"custom/arrow3": {
-		"format": "",
-		"tooltip": false
-	},
-	"custom/arrow4": {
-		"format": "",
-		"tooltip": false
-	},
-	"custom/arrow5": {
-		"format": "",
-		"tooltip": false
-	},
-	"custom/arrow6": {
-		"format": "",
-		"tooltip": false
-	},
-	"custom/arrow7": {
-		"format": "",
-		"tooltip": false
-	},
-	"custom/arrow8": {
-		"format": "",
-		"tooltip": false
-	},
-	"custom/arrow9": {
-		"format": "",
-		"tooltip": false
-	},
-	"custom/arrow10": {
-		"format": "",
-		"tooltip": false
-	}
+    "position": "top",
+    "margin-top": 10,
+    "margin-left": 20,
+    "margin-right": 20,
+    "spacing": 10, 
+
+    "modules-left": ["group/niri-pill"],
+    "modules-center": ["group/clock-pill"],
+    "modules-right": ["group/system-pill","group/hardware-pill"],
+
+    // Niri Specific Pill
+    "group/niri-pill": {
+        "orientation": "horizontal",
+        "modules": ["niri/workspaces", "niri/window"]
+    },
+
+    "group/clock-pill": {
+        "orientation": "horizontal",
+        "modules": ["clock"]
+    },
+
+    "group/hardware-pill": {
+        "orientation": "horizontal",
+        "modules": ["pulseaudio", "network", "battery", "idle_inhibitor", "power-profiles-daemon"]
+    },
+    "group/system-pill":{
+        "orientation":"horizontal",
+        "modules": ["tray", "niri/language"]
+    },
+
+    // Optional: Configure Niri workspace behavior
+    "niri/workspaces": {
+        "format": "{icon}",
+        "format-icons": {
+            "default": "○",
+            "active": "●"
+        }
+    },
+
+    "niri/window": {
+        "format": "{title}",
+        "max-length": 30
+    },
+
+    "niri/language":{
+        "format":"{short} {variant}",
+        "tooltip":true,
+        "tooltip-format":"both shift to change"
+
+    },
+
+    "clock": {
+        "format": "{:%H:%M, %Y-%m-%d}",
+        "locale":"de_DE.UTF-8",
+        "tooltip": true,
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "iso8601":true,
+            "mode": "month",
+            "weeks-pos": "left",
+            "on-scroll": 1,
+            "format": {
+                "months": "<span color='#ffead3'><b>{}</b></span>",
+                "days": "<span color='#ecc6d9'><b>{}</b></span>",
+                "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+                "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+                "today": "<span color='#ff6666'><b><u>{}</u></b></span>"
+            }
+        }
+    },
+
+    "idle_inhibitor":{
+        "format":"{icon}",
+        "format-icons": {
+            "deactivated": "○",
+            "activated": "●"
+        },
+       "tooltip":true 
+    },
+
+    "power-profiles-daemon":{
+        "format":"{icon}",
+        "tooltip-format":"Power Profile: {profile}\nDriver: {driver}",
+        "tooltip":true,
+        "format-icons":{
+            "default":"d",
+            "performance":"p",
+            "balanced":"b",
+            "power-saver":"ps"
+        }
+    }
 }
-// vi:ft=jsonc
+

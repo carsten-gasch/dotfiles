@@ -313,8 +313,9 @@ layout {
 
 // This line starts waybar, a commonly used bar for Wayland compositors.
 // spawn-at-startup "waybar"
-spawn-sh-at-startup "swaybg -o DP-2 -i ~/Bilder/wallpaper/lifting_shirt.png"
-spawn-sh-at-startup "swaybg -o HDMI-A-2 -i ~/Bilder/wallpaper/lifting_shirt_2.png"
+// spawn-sh-at-startup "swaybg -o DP-2 -i ~/Bilder/wallpaper/lifting_shirt.png"
+// spawn-sh-at-startup "swaybg -o HDMI-A-2 -i ~/Bilder/wallpaper/lifting_shirt_2.png"
+spawn-sh-at-startup "awww-daemon & sleep 0.5 & awww img -o DP-2 ~/Bilder/wallpaper/pixel_sakura.gif"
 spawn-sh-at-startup "solaar --window=hide"
 spawn-sh-at-startup "systemctl --user start stasis"
 
@@ -422,7 +423,8 @@ binds {
     // Mod+Space hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
     //Mod+Return hotkey-overlay-title="Open a Terminal: ghostty" { spawn "ghostty"; }
     Mod+T hotkey-overlay-title="Open a Terminal: ghostty" { spawn "ghostty"; }
-    Mod+Space hotkey-overlay-title="Run an Application: rofi" { spawn-sh "rofi -show drun"; }
+    //Mod+Space hotkey-overlay-title="Run an Application: rofi" { spawn-sh "rofi -show drun"; }
+    Mod+Space hotkey-overlay-title="Run an Application: fuzzel" { spawn-sh "fuzzel"; }
     Mod+E hotkey-overlay-title="Run File Manager: nautilus" { spawn "nautilus"; }
     Mod+B hotkey-overlay-title="Run Chrome" { spawn "google-chrome-stable"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn-sh "swaylock -i ~/Bilder/wallpaper/lifting_shirt.png"; }
